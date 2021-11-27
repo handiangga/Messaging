@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("UserMessages", {
+    await queryInterface.createTable("ListFriends", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,14 +15,7 @@ module.exports = {
           key: "id",
         },
       },
-      MessageId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Messages",
-          key: "id",
-        },
-      },
-      to: {
+      friendId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Users",
@@ -40,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("UserMessages");
+    await queryInterface.dropTable("ListFriends");
   },
 };
