@@ -14,7 +14,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).json({ msg: "server running" });
 });
-// app.use("/", routers);
-// app.use(errorHandler);
+app.use("/", routers);
+app.use(errorHandler);
 
 module.exports = app;

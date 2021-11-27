@@ -7,6 +7,6 @@ const { authentication } = require("../middlewares/auth");
 routers.use("/", userRouters);
 routers.use(authentication);
 routers.use("/message", messageRouters);
-routers.use("/listfriend", listfriendRouters);
+routers.use("/listFriend", listfriendRouters);
 
 module.exports = routers;

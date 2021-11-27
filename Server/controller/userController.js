@@ -18,6 +18,7 @@ class UserController {
         res.status(201).json({ id: data.id, email: data.email });
       })
       .catch((err) => {
+        console.log("masuk error");
         next(err);
       });
   }

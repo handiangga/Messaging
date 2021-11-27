@@ -1,4 +1,5 @@
 function errorHandler(err, req, res, next) {
+  console.log(err);
   switch (err.name) {
     case "SequelizeValidationError":
       res.status(401).json({ message: err.errors[0].message });
@@ -31,6 +32,9 @@ function errorHandler(err, req, res, next) {
       res.status(401).json({ message: err.message });
       break;
     case "Not Authorized":
+      res.status(401).json({ message: err.message });
+      break;
+    case "notFriend":
       res.status(401).json({ message: err.message });
       break;
     case "JsonWebTokenError":
