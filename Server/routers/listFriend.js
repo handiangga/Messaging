@@ -3,6 +3,6 @@ const listFriendController = require("../controller/listFriendController");
 
 routers.get("/", listFriendController.showAll);
 routers.post("/", listFriendController.addFriend);
-routers.delete("/", listFriendController.deleteFriend);
+routers.delete("/:friendId", listFriendController.deleteFriend);
 
 module.exports = routers;

@@ -30,7 +30,6 @@ class UserController {
             let payload = {
               id: data.id,
               email: data.email,
-              role: data.role,
             };
             let access_token = jwtSign(payload);
             res.status(200).json({ access_token });
