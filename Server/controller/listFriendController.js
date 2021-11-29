@@ -2,7 +2,6 @@ const { ListFriend, User } = require("../models");
 class listFriendController {
   static async showAll(req, res, next) {
     try {
-      console.log("masukk");
       const listFriend = await ListFriend.findAll({
         where: {
           UserId: req.user.id,
@@ -49,11 +48,10 @@ class listFriendController {
   }
   static async deleteFriend(req, res, next) {
     try {
-      const { friendId } = req.body;
       const listFriend = await ListFriend.destroy({
         where: {
           UserId: req.users.id,
-          friendId,
+          friendId: +req.params.friendId,
         },
       });
       res.status(200).json(listFriend);

@@ -9,13 +9,6 @@ class messageController {
         },
         include: [User, Message],
       });
-      // const newStatus = null;
-      // if (messages.status === "unread") {
-      //   newStatus = await messages.update((messages.status = "read"), {
-      //     where: { id: id },
-      //     returning: true,
-      //   });
-      // }
       let listMessages = messages.map((message) => {
         return {
           id: message.id,
@@ -33,7 +26,6 @@ class messageController {
       next(error);
     }
   }
-  static async showById(req, res, next) {}
   static async sendMessage(req, res, next) {
     let newMessage = {
       message: req.body.message,
